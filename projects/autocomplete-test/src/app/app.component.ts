@@ -9,15 +9,16 @@ import { HttpRequestConfig } from 'ngx-autocomplete-api';
 export class AppComponent {
   title = 'autocompleteTest';
   value = 'Clear me';
+  
   config: HttpRequestConfig = {
     method: 'GET',
     dataApi: 'https://demo.dataverse.org/api/search?q=<thisIsText>',
     fieldToDisplay: 'name',
-    textToReplace:'<thisIsText>'
+    textInUrlToReplace: '<thisIsText>'
   };
 
   mapFunction = (data) => {
-    return data.data.items
+    return data.data.items;
   }
 }
 

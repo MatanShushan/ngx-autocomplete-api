@@ -38,7 +38,7 @@ import { HttpRequestConfig } from '../public-api';
 })
 export class NgxAutocompleteApiComponent implements OnInit, OnDestroy {
   @Input() formFieldAppearance: MatFormFieldAppearance = 'standard';
-  @Input() placeholder: boolean
+  @Input() placeholder: boolean;
 
   @Input() mapDataFunction: (data: any) => any;
   @Input('httpRequestConfig') config: HttpRequestConfig;
@@ -132,7 +132,7 @@ export class NgxAutocompleteApiComponent implements OnInit, OnDestroy {
       throw console.error('dataApi must be provided!');
     }
 
-    if (this.config.method === 'GET' && !this.config.dataApi.includes(this.textToReplace)) {
+    if (this.config.method === 'GET' && !this.config.dataApi.includes(this.config.textInUrlToReplace || this.textToReplace)) {
       throw console.error('text to replace must be provided within the dataApi!');
     }
 
