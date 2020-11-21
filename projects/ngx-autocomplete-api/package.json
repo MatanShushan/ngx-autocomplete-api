@@ -11,5 +11,17 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/MatanShushan/ngx-autocomplete-api"
-  }
+  },
+  "keywords": [
+    "Angular",
+    "auto complete",
+    "autocomplete",
+    "autocomplete-component",
+    "Angular Material",
+    "autocomplete API",
+    "autocomplete fetch data",
+    "mat-autocomplete",
+    "Angular Material autocomplete"
+  ],
+  "license": "MIT"
 }
