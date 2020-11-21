@@ -8,7 +8,7 @@ import { debounce, debounceTime, map, startWith } from 'rxjs/operators';
 import { HttpRequestConfig } from '../public-api';
 
 @Component({
-  selector: 'lib-ngx-autocomplete-api',
+  selector: 'ngx-autocomplete-api',
   template: `
      <mat-form-field [appearance]="formFieldAppearance">
     <input type="text"
@@ -44,20 +44,19 @@ export class NgxAutocompleteApiComponent implements OnInit, OnDestroy {
   @Input('httpRequestConfig') config: HttpRequestConfig;
 
   inputCtrl: FormControl = new FormControl('');
+  dataObserver: Observable<any>;
+  inputSubscriber: Subscription;
 
   private dataApi: string;
   private textToReplace: string = '<textToReplace>';
   private httpMethod: 'GET' | 'POST' = 'GET';
   private fieldToDisplay: string;
-
-  dataObserver: Observable<any>;
-  inputSubscriber: Subscription;
-
+  
   // mat-autocomplete api
   @Input() displayWith: ((value: any) => string) | null;
-  @Input('class') classList: string | string[]
+  @Input('class') classList: string | string[];
   @Input() autoActiveFirstOption: boolean;
-  @Input() disableRipple: boolean
+  @Input() disableRipple: boolean;
   @Input() panelWidth: string | number;
   @Output('closed') closedEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output('opened') openedEvent: EventEmitter<void> = new EventEmitter<void>();
