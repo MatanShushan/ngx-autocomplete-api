@@ -7,11 +7,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { DisplayWithPipe } from './display-with.pipe';
+import { OptionDirective } from './option.directive';
 
 @NgModule({
   declarations: [
     NgxAutocompleteApiComponent,
-    DisplayWithPipe
+    DisplayWithPipe,
+    OptionDirective
   ],
   imports: [
     CommonModule,

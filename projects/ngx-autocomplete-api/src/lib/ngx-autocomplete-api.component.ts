@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteActivatedEvent, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
@@ -28,8 +28,12 @@ import { HttpRequestConfig } from '../public-api';
          [displayWith]="displayWith"
          >
          <mat-option *ngFor="let option of dataObserver|async  " [value]="option">
-           {{option |displayWith:displayWith}}
-         </mat-option>
+            <ng-container *ngTemplateOutlet="!templateRef?noTemplateProvidedView:templateRef; context:{$implicit:option}">
+            </ng-container>
+            <ng-template #noTemplateProvidedView>
+              {{option |displayWith:displayWith}}
+            </ng-template>
+          </mat-option>
        </mat-autocomplete>
       </mat-form-field>
   `,
@@ -46,7 +50,8 @@ export class NgxAutocompleteApiComponent implements OnInit, OnDestroy {
   inputCtrl: FormControl = new FormControl('');
   dataObserver: Observable<any>;
   inputSubscriber: Subscription;
-
+  templateRef: TemplateRef<any>;
+  
   private dataApi: string;
   private textToReplace: string = '<textToReplace>';
   private httpMethod: 'GET' | 'POST' = 'GET';
@@ -153,6 +158,13 @@ export class NgxAutocompleteApiComponent implements OnInit, OnDestroy {
 
   }
 
+  
+  setViewComponent(template: TemplateRef<any>) {
+    if (this.templateRef) {
+      console.warn('More the one view provided');
+    }
+    this.templateRef = template;
+  }
 
   closed($event) {
     this.closedEvent.emit($event);

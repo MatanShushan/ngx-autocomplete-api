@@ -4,7 +4,6 @@
 
 import { HttpHeaders, HttpParams } from '@angular/common/http';
 
-export * from './lib/ngx-autocomplete-api.service';
 export * from './lib/ngx-autocomplete-api.component';
 export * from './lib/ngx-autocomplete-api.module';
 

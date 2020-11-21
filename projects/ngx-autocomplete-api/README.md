@@ -1,6 +1,6 @@
-# BETA!
 # Autocomplete using API
-Angular material autocomplate component that featch data
+Angular material autocomplate component that featch data.
+Simply set an url to the config input and the component will generate an autocomplate component form the data that returns from the API
 
 
 ### Installation
@@ -22,8 +22,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgxAutocompleteApiModule } from 'dist/ngx-autocomplete-api';
-
+import { NgxAutocompleteApiModule } from 'ngx-autocomplete-api';
  
 @NgModule({
   imports: [
@@ -68,6 +67,15 @@ export class AppComponent {
 }
 
 ```
+#### Custom view for option
+```
+<ngx-autocomplete-api [httpRequestConfig]="config" [mapDataFunction]="mapFunction">
+    <div *option="let option">
+        {{option.name}}
+     </div>
+</ngx-autocomplete-api>
+```
+
 
 
 

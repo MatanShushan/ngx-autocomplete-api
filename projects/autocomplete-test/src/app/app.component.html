@@ -1,2 +1,6 @@
-<lib-ngx-autocomplete-api [httpRequestConfig]="config" [mapDataFunction]="mapFunction"></lib-ngx-autocomplete-api>
+<ngx-autocomplete-api [httpRequestConfig]="config" [mapDataFunction]="mapFunction">
+    <div *option="let option">
+        {{option.name}}
+     </div>
+</ngx-autocomplete-api>
 
