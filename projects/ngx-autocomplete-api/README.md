@@ -85,14 +85,14 @@ export class AppComponent {
 | ------ | ------ |
 | @Input('httpRequestConfig') config: HttpRequestConfig | Configuration for the http request. |
 | @Input() mapDataFunction: (data: any) => any | Optinal. Map functoin for pipe the http request. |
-| @Input() formFieldAppearance: MatFormFieldAppearance = 'standard' | TODO |
-| inputCtrl: FormControl = new FormControl('') | TODO |
-| dataObserver: Observable<any> | TODO |
-| inputSubscriber: Subscription | TODO |
-| dataApi: string;|TODO|
-|textToReplace: string = '<textToReplace>'|TODO|
-|httpMethod: 'GET' \| 'POST' = 'GET' = '<textToReplace>'|TODO|
-|fieldToDisplay: string;|TODO|
+| @Input() formFieldAppearance: MatFormFieldAppearance = 'standard' | Angular form field tag appearance |
+| inputCtrl: FormControl = new FormControl('') | Form Control for the input |
+| dataObserver: Observable<any> | observer for the data stream |
+| inputSubscriber: Subscription | subscriber for user text input |
+| dataApi: string;|Route for the HTTP request|
+|textToReplace: string = '<textToReplace>'|Text inside to url need to be changed accurdenly to the user search|
+|httpMethod: 'GET' \| 'POST' = 'GET'|  Which http method to use|
+|fieldToDisplay: string;|Field name inside the return object to display in the autocomplate|
 
 
   
