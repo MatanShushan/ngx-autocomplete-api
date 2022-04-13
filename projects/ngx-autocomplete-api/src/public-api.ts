@@ -7,7 +7,6 @@ import { HttpHeaders, HttpParams } from '@angular/common/http';
 export * from './lib/ngx-autocomplete-api.component';
 export * from './lib/ngx-autocomplete-api.module';
 
-
 export interface HttpRequestConfig {
     dataApi: string;
     method?: 'GET' | 'POST';
